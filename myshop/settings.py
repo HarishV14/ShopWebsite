@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
-
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -144,9 +144,9 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 
 # Braintree settings
-BRAINTREE_MERCHANT_ID = 'XXX' # Merchant ID
-BRAINTREE_PUBLIC_KEY = 'XXX' # Public Key
-BRAINTREE_PRIVATE_KEY = 'XXX' # Private key
+BRAINTREE_MERCHANT_ID = os.getenv("BRAINTREE_MERCHANT_ID") # Merchant ID
+BRAINTREE_PUBLIC_KEY = os.getenv("BRAINTREE_PUBLIC_KEY") # Public Key
+BRAINTREE_PRIVATE_KEY = os.getenv("BRAINTREE_PRIVATE_KEY") # Private key
 
 import braintree
 BRAINTREE_CONF = braintree.Configuration(
