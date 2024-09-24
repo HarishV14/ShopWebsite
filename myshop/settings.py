@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
 
 ]
 
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -126,3 +128,30 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # This is the key that you are going to use to store the cart in the user session.
 CART_SESSION_ID = 'cart'
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))  # Default to 587 if not set
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "True").lower() == "true"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+
+
+# Braintree settings
+BRAINTREE_MERCHANT_ID = 'XXX' # Merchant ID
+BRAINTREE_PUBLIC_KEY = 'XXX' # Public Key
+BRAINTREE_PRIVATE_KEY = 'XXX' # Private key
+
+import braintree
+BRAINTREE_CONF = braintree.Configuration(
+ braintree.Environment.Sandbox,
+ BRAINTREE_MERCHANT_ID,
+ BRAINTREE_PUBLIC_KEY,
+ BRAINTREE_PRIVATE_KEY
+)
