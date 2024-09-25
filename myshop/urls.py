@@ -23,9 +23,11 @@ urlpatterns = [
     path("", RedirectView.as_view(url="shop/", permanent=True)),
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls', namespace='cart')),
+    path('coupons/', include('coupons.urls', namespace='coupons')),
     path('shop/', include('shop.urls',namespace="shop")),
     path('orders/', include('orders.urls', namespace='orders')),
     path('payment/', include('payment.urls', namespace='payment')),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
