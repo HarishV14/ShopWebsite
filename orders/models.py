@@ -25,8 +25,17 @@ class Order(models.Model):
     def __str__(self):
         return f'Order {self.id}'
     def get_total_cost(self):
-        total_cost = sum(item.get_cost() for item in self.items.all())
+        """Calculate the total cost of all items in the order."""
+        return sum(item.get_cost() for item in self.items.all())
+    
+    def get_total_discount_cost(self):
+        """Total cost after applting discount"""
+        total_cost = self.get_total_cost()
         return total_cost - total_cost * (self.discount / Decimal(100))
+    
+    def get_discount_applied_cost(self):
+        '''discount amount from total'''
+        return self.get_total_cost() - self.get_total_discount_cost()
     
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,related_name='items',on_delete=models.CASCADE)
