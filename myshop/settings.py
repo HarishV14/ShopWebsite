@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
+    'rosetta',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'myshop.urls'
@@ -109,16 +111,31 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# default language code of project
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
+# translation system is enabled
 USE_I18N = True
 
+# localization format is enabled
 USE_L10N = True
 
+# timezone aware
 USE_TZ = True
 
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGES = (
+ ('en', _('English')),
+ ('es', _('Spanish')),
+ ('ta', _('Tamil')),
+)
+# LOCALE_PATHS setting specifies the directories where Django has to look for translation files
+LOCALE_PATHS = (
+ os.path.join(BASE_DIR, 'locale/'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
