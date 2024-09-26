@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
     'rosetta',
+    'parler',
 ]
 
 MIDDLEWARE = [
@@ -173,3 +174,19 @@ BRAINTREE_CONF = braintree.Configuration(
  BRAINTREE_PUBLIC_KEY,
  BRAINTREE_PRIVATE_KEY
 )
+
+PARLER_LANGUAGES = {
+ None: (
+    {'code': 'en'},
+    {'code': 'es'},
+    {'code': 'ta'},
+    ),
+    'default': {
+    'fallback': 'en',
+    'hide_untranslated': False,
+    }
+}
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-26 13:21+0530\n"
+"POT-Creation-Date: 2024-09-26 10:28+0000\n"
 "PO-Revision-Date: 2024-09-26 07:55+0000\n"
 "Last-Translator: b'  <harishv@testpress.in>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,15 +23,15 @@ msgstr ""
 msgid "Quantity"
 msgstr "அளவு"
 
-#: myshop/settings.py:130
+#: myshop/settings.py:132
 msgid "English"
 msgstr "ஆங்கிலம்"
 
-#: myshop/settings.py:131
+#: myshop/settings.py:133
 msgid "Spanish"
 msgstr "இஸ்பானிய"
 
-#: myshop/settings.py:132
+#: myshop/settings.py:134
 msgid "Tamil"
 msgstr "தமிழ்"
 
@@ -108,26 +108,36 @@ msgstr "செயலாக்கம்/"
 msgid "done/"
 msgstr "முடிக்கப்பட்டது/"
 
-
-
-#: shop/templates/shop/base.html:10 shop/templates/shop/base.html:17
+#: shop/templates/shop/base.html:11 shop/templates/shop/base.html:19
 msgid "My shop"
 msgstr "என் கடை"
 
-#: shop/templates/shop/base.html:23
+#: shop/templates/shop/base.html:24
+msgid "Language"
+msgstr ""
+
+#: shop/templates/shop/base.html:40
 msgid "Your cart"
 msgstr "உங்கள் கடை"
 
-#: shop/templates/shop/base.html:25
-#, python-format
+#: shop/templates/shop/base.html:42
+#, fuzzy, python-format
+#| msgid ""
+#| "\n"
+#| "                %(items)s item, $%(total)s\n"
+#| "                "
+#| msgid_plural ""
+#| "\n"
+#| "                %(items)s items, $%(total)s\n"
+#| "            "
 msgid ""
 "\n"
-"                %(items)s item, $%(total)s\n"
-"                "
+"        %(items)s item, $%(total)s\n"
+"        "
 msgid_plural ""
 "\n"
-"                %(items)s items, $%(total)s\n"
-"            "
+"        %(items)s items, $%(total)s\n"
+"        "
 msgstr[0] ""
 "\n"
 "%(items)s பொருள், $%(total)s"
@@ -135,7 +145,7 @@ msgstr[1] ""
 "\n"
 "%(items)s பொருட்கள், $%(total)s"
 
-#: shop/templates/shop/base.html:32
+#: shop/templates/shop/base.html:49
 msgid "Your cart is empty."
 msgstr "உங்கள் கடை காலியாக உள்ளது."
 
