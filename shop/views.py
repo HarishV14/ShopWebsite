@@ -20,6 +20,7 @@ def product_list(request, category_slug=None):
                                                     'products': products})
 
 from cart.forms import CartAddProductForm
+from .recommender import Recommender
 
 def product_detail(request, id, slug):
     language = request.LANGUAGE_CODE
@@ -28,4 +29,7 @@ def product_detail(request, id, slug):
                                 translations__slug=slug,
                                 available=True)
     cart_product_form = CartAddProductForm()
-    return render(request,'shop/product/detail.html',{'product': product,'cart_product_form': cart_product_form})
+    r = Recommender()
+    recommended_products = r.suggest_products_for([product], 4)
+    return render(request,'shop/product/detail.html',{'product': product,'cart_product_form': cart_product_form,
+                                                      'recommended_products': recommended_products})
